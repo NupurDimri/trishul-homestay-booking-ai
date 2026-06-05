@@ -1,1 +1,14 @@
+# Node dependencies
+node_modules/
 
+# Environment variables
+.env
+
+# macOS system files
+.DS_Store
+
+# Build output
+dist/
+
+# Next.js build files
+.next/
