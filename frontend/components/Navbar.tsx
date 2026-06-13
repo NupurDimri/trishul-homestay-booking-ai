@@ -1,46 +1,56 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    
-    <nav className="flex flex-col md:flex-row items-center justify-between px-4 md:px-8 py-4 bg-gray-600 shadow-md">
+    <nav className="bg-gray-600 shadow-md px-4 md:px-8 py-4">
 
-      {/* Left Side - Logo/Name */}
-      <Link href="/">
-        <h1 className="text-xl md:text-2xl font-bold text-white cursor-pointer text-center">
+      <div className="flex items-center justify-between">
+
+        <Link href="/" className="text-xl md:text-2xl font-bold text-white">
           Trishul Eco Homestays
-        </h1>
-      </Link>
-
-      {/* Right Side - Links + Button */}
-
-      <div className="flex flex-wrap justify-center md:justify-end items-center gap-3 md:gap-6 mt-3 md:mt-0">
-
-        <Link href="/" className="hover:text-green-400 text-lg text-white">
-          Home
         </Link>
 
-        <Link href="/rooms" className="hover:text-green-400 text-lg text-white">
-          Rooms
-        </Link>
+        {/* Mobile Hamburger */}
+        <button
+          className="md:hidden text-white text-3xl"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          ☰
+        </button>
 
-        <Link href="/about" className="hover:text-green-400 text-lg text-white">
-          About
-        </Link>
-
-        <Link href="/contact" className="hover:text-green-400 text-lg text-white">
-          Contact
-        </Link>
-
-        <Link href="/dashboard" className="hover:text-green-400 text-lg text-white">
-          Dashboard
-        </Link>
-
-        <Link href="/login" className="bg-green-700 text-white px-4 py-2 rounded-lg hover:bg-green-800">
-          Login
-        </Link>
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-6 text-white">
+          <Link href="/">Home</Link>
+          <Link href="/rooms">Rooms</Link>
+          <Link href="/about">About</Link>
+          <Link href="/contact">Contact</Link>
+          <Link href="/dashboard">Dashboard</Link>
+          <Link
+            href="/login"
+            className="bg-green-700 px-4 py-2 rounded-lg hover:bg-green-800"
+          >
+            Login
+          </Link>
+        </div>
 
       </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="flex flex-col items-center gap-4 mt-4 md:hidden text-white">
+          <Link href="/">Home</Link>
+          <Link href="/rooms">Rooms</Link>
+          <Link href="/about">About</Link>
+          <Link href="/contact">Contact</Link>
+          <Link href="/dashboard">Dashboard</Link>
+          <Link href="/login">Login</Link>
+        </div>
+      )}
 
     </nav>
   );
