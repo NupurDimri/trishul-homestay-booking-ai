@@ -1,3 +1,6 @@
+import Button from "@/components/button";
+import Link from "next/link";
+
 export default function AboutPage() {
   return (
     <main className="bg-gray-50 min-h-screen">
@@ -102,6 +105,60 @@ export default function AboutPage() {
 
         </div>
       </section>
+
+
+    <section className="py-20 bg-gray-50">
+  <div className="max-w-7xl mx-auto px-6">
+
+    <div className="text-center mb-12">
+      <h2 className="text-4xl font-bold mb-4">
+        Gallery Preview
+      </h2>
+
+      <p className="text-gray-600 max-w-2xl mx-auto">
+        Discover the beauty of Trishul Eco Homestay through our rooms,
+        breathtaking mountain views, and unforgettable guest experiences.
+      </p>
+    </div>
+
+    <div className="grid md:grid-cols-3 gap-4">
+
+      {/* Large Image */}
+      <div className="md:col-span-2">
+        <img
+          src="/images/gallery1.jpg"
+          alt="Homestay View"
+          className="h-[500px] w-full object-cover rounded-3xl shadow-lg hover:scale-[1.02] transition duration-300"
+        />
+      </div>
+
+      {/* Right Side Images */}
+      <div className="flex flex-col gap-4">
+
+        <img
+          src="/images/gallery2.jpg"
+          alt="Room"
+          className="h-[242px] w-full object-cover rounded-3xl shadow-lg hover:scale-[1.02] transition duration-300"
+        />
+
+        <img
+          src="/images/gallery3.jpg"
+          alt="Nature View"
+          className="h-[242px] w-full object-cover rounded-3xl shadow-lg hover:scale-[1.02] transition duration-300"
+        />
+
+      </div>
+
+    </div>
+
+    <div className="text-center mt-10">
+      <Link href="./gallery">
+        <Button text="View Full Gallery →" variant="primary"/>
+      </Link>
+    </div>
+
+  </div>
+</section>
 
     </main>
   );
